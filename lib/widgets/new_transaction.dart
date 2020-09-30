@@ -49,69 +49,76 @@ class _NewTransactionState extends State<NewTransaction> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
-      child: Container(
-        padding: EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: <Widget>[
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Title',
-              ),
-              controller: _titleController,
-              onSubmitted: (_) => _createTrx(),
-            ),
-            TextField(
-              decoration: InputDecoration(
-                labelText: 'Amount',
-              ),
-              controller: _amountController,
-              keyboardType: TextInputType.numberWithOptions(
-                decimal: true,
-              ),
-              onSubmitted: (_) => _createTrx(),
-            ),
-            Container(
-              height: 80,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(
-                    _selectedDate == null
-                        ? 'No Date Chosen'
-                        : 'Picked Date: ${DateFormat.yMMMEd().format(_selectedDate)}',
-                    // style: Theme.of(context).textTheme.title,
-                  ),
-                  FlatButton(
-                    child: Text(
-                      'Choose date',
-                      style: TextStyle(
-                        fontFamily: 'OpenSans',
-                        fontWeight: FontWeight.bold,
-                        color: Theme.of(context).primaryColor,
-                      ),
-                    ),
-                    onPressed: _viewDatePicker,
-                  )
-                ],
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 30),
-              child: RaisedButton(
-                child: Text(
-                  'Add Transaction',
-                  style: TextStyle(
-                      fontFamily: 'QuickSand',
-                      color: Theme.of(context).primaryColorDark,
-                      fontWeight: FontWeight.bold),
+    return SingleChildScrollView(
+      child: Card(
+        elevation: 5,
+        child: Container(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom + 10,
+            left: 10,
+            right: 10,
+            top: 10,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: <Widget>[
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Title',
                 ),
-                onPressed: _createTrx,
+                controller: _titleController,
+                onSubmitted: (_) => _createTrx(),
               ),
-            )
-          ],
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Amount',
+                ),
+                controller: _amountController,
+                keyboardType: TextInputType.numberWithOptions(
+                  decimal: true,
+                ),
+                onSubmitted: (_) => _createTrx(),
+              ),
+              Container(
+                height: 80,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      _selectedDate == null
+                          ? 'No Date Chosen'
+                          : 'Picked Date: ${DateFormat.yMMMEd().format(_selectedDate)}',
+                      // style: Theme.of(context).textTheme.title,
+                    ),
+                    FlatButton(
+                      child: Text(
+                        'Choose date',
+                        style: TextStyle(
+                          fontFamily: 'OpenSans',
+                          fontWeight: FontWeight.bold,
+                          color: Theme.of(context).primaryColor,
+                        ),
+                      ),
+                      onPressed: _viewDatePicker,
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 30),
+                child: RaisedButton(
+                  child: Text(
+                    'Add Transaction',
+                    style: TextStyle(
+                        fontFamily: 'QuickSand',
+                        color: Theme.of(context).primaryColorDark,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  onPressed: _createTrx,
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
