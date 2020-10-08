@@ -105,7 +105,7 @@ class _NewTransactionState extends State<NewTransaction> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.symmetric(vertical: 30),
+                margin: const EdgeInsets.symmetric(vertical: 30),
                 child: RaisedButton(
                   child: Text(
                     'Add Transaction',
