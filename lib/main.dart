@@ -206,12 +206,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 appBar,
                 trxListWidget,
               ),
-            // if (!isLandscape)
-            //   ..._buildPotriatContent(
-            //     mediaQuery,
-            //     appBar,
-            //     trxListWidget,
-            //   )
+            if (!isLandscape)
+              ..._buildPotriatContent(
+                mediaQuery,
+                appBar,
+                trxListWidget,
+              )
           ],
         ),
       ),
